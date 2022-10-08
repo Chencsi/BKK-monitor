@@ -1,5 +1,7 @@
 var url = window.location.href;
 var lastPart = url.substr(url.lastIndexOf('#') + 1);
+var stopsCount = 0;
+var currentStop = 0;
 
 async function getBus(){
     // a fetch kuld egy kerest a szervernek
@@ -16,17 +18,32 @@ async function getBus(){
     return bus;
 }
 
+function isZero(n){
+    n = n.toString();
+    if(n.length == 1){
+        return ("0" + n);
+    }
+    else{
+        return n
+    }
+}
+
 async function init(){ //main function
     const stops = await getBus();
     var lastStop = stops[stops.length - 1];
     var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes();
+    var time = isZero(today.getHours()) + ":" + isZero(today.getMinutes());
     document.querySelector(".last-stop").innerText = lastStop;
     document.querySelector(".bus-number").innerText = lastPart;
     document.querySelector(".time").innerText = time;
+    stopsCount = stops;
 }
 
 init();
+
+setTimeout(() => {
+    document.location.reload(true);
+}, 60000);
 
 /*
 async function init(){
