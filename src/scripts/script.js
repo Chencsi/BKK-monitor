@@ -7,7 +7,7 @@ async function getBus(){
     // a fetch kuld egy kerest a szervernek
     // addig nem megy tovabb amig nem kap valaszt
     await new Promise(r => setTimeout(r, 500)); // time.sleep
-    const bus = await (await fetch("http://127.0.0.1:5500/src/scripts/buses/" + lastPart + ".json")).json();
+    const bus = await (await fetch("../scripts/buses/" + lastPart + ".json")).json();
     var lista = document.createElement("ul");
     bus.forEach(stop => { //vegigmegy a megallokon
         const stopLi = document.createElement("li"); //csinal egy li-t
