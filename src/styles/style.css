@@ -105,3 +105,6 @@ ul{
 ul li:nth-last-of-type(16) ~ li {
     display: none !important;
 }
+/* li:nth-child(-n+0) {
+    display: none;
+} */

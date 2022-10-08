@@ -1,7 +1,7 @@
 var url = window.location.href;
 var lastPart = url.substr(url.lastIndexOf('#') + 1);
 var stopsCount = 0;
-var currentStop = 0;
+var currentStop = 1;
 
 async function getBus(){
     // a fetch kuld egy kerest a szervernek
@@ -40,6 +40,11 @@ async function init(){ //main function
 }
 
 init();
+
+document.getElementById("next-stop").onclick = ()=>{
+    $("li:nth-child(-n+" + currentStop + ")").hide();
+    currentStop += 1;
+};
 
 setTimeout(() => {
     document.location.reload(true);
