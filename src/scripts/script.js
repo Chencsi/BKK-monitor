@@ -2,6 +2,7 @@ var url = window.location.href;
 var lastPart = url.substr(url.lastIndexOf('#') + 1);
 var stopsCount = 0;
 var currentStop = 1;
+var clickable = true;
 
 async function getBus(){
     // a fetch kuld egy kerest a szervernek
@@ -19,16 +20,6 @@ async function getBus(){
     return bus;
 }
 
-function isZero(n){
-    n = n.toString();
-    if(n.length == 1){
-        return ("0" + n);
-    }
-    else{
-        return n
-    }
-}
-
 async function init(){ //main function
     const stops = await getBus();
     var lastStop = stops[stops.length - 1];
@@ -42,23 +33,46 @@ async function init(){ //main function
     $("ul li:nth-last-of-type(16) ~ li").hide();;
 }
 
+function isZero(n){
+    n = n.toString();
+    if(n.length == 1){
+        return ("0" + n);
+    }
+    else{
+        return n
+    }
+}
+
 init();
 
+$(".next-stop-main").hide();
+
 document.getElementById("next-stop").onclick = ()=>{
-    if (currentStop < stopsCount){
-        if (currentStop == stopsCount - 2){
-            $("ul").css("margin-top","78px")
+    if(clickable){
+        clickable = false;
+        if (currentStop < stopsCount){
+            $("main").hide();
+            $(".next-stop-main").show();
+            setTimeout(() => {
+                $("main").show();
+                $(".next-stop-main").hide();
+            }, 3000);
+            if (currentStop == stopsCount - 2){
+                $("ul").css("margin-top","78px")
+            }
+            else if (currentStop == stopsCount - 1){
+                $("ul").css("margin-top","133px")
+            }
+            $("main li:nth-child(-n+" + (currentStop + 3) + ")").show();
+            $("main li:nth-child(-n+" + currentStop + ")").hide();
+            currentStop += 1;
+            $("main li:nth-child(-n+" + currentStop + ")").css("font-weight", "bold");
         }
-        else if (currentStop == stopsCount - 1){
-            $("ul").css("margin-top","133px")
-        }
-        $("li:nth-child(-n+" + (currentStop + 3) + ")").show();
-        $("li:nth-child(-n+" + currentStop + ")").hide();
-        currentStop += 1;
-        $("li:nth-child(-n+" + currentStop + ")").css("font-weight", "bold");
     }
+    clickable = true;
 };
 
 setTimeout(() => {
-    document.location.reload(true);
+    time = isZero(today.getHours()) + ":" + isZero(today.getMinutes());
+    document.querySelector(".time").innerText = time;
 }, 60000);

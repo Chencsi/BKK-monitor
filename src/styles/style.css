@@ -113,13 +113,6 @@ main ul{
 #next-stop:hover{
     background-color: rgb(0, 66, 153);
 }
-.next-stop-main{
-    position: absolute;
-    display: block;
-    margin: auto;
-    left: 0;
-    right: 0;
-}
 .next-stop-ul{
     list-style-type: none;
     margin: 0;
@@ -134,14 +127,9 @@ main ul{
 .next-stop-ul li:last-child{
     font-style: italic;
 }
-@keyframes next-stop {
-    0%{
-        
-    }
-    50%{
-
-    }
-    100%{
-
-    }
+.big-next-stop{
+    font-size: 200%;
+    position: absolute;
+    left: 10px;
+    top: 80px;
 }
