@@ -53,14 +53,3 @@ document.getElementById("next-stop").onclick = ()=>{
 setTimeout(() => {
     document.location.reload(true);
 }, 60000);
-
-/*
-async function init(){
-    await getBus();
-    console.log("asd")
-}
-getBus().then(()=>{
-    console.log("asd")
-});
-console.log("hello")
-*/

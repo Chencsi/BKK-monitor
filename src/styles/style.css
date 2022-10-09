@@ -108,16 +108,9 @@ ul{
     font-weight: bold;
     padding: 5px 10px;
     border: none;
-    /* box-shadow: 2px 2px 5px black; */
     margin-left: 15px;
     border-radius: 3px;
 }
 #next-stop:hover{
     background-color: rgb(0, 66, 153);
 }
-/* ul li:nth-last-of-type(16) ~ li {
-    display: none !important;
-} */
-/* li:nth-child(-n+0) {
-    display: none;
-} */
