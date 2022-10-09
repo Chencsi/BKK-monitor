@@ -37,17 +37,26 @@ async function init(){ //main function
     document.querySelector(".last-stop").innerText = lastStop;
     document.querySelector(".bus-number").innerText = 85; //lastPart
     document.querySelector(".time").innerText = time;
-    stopsCount = stops;
+    stopsCount = stops.length;
     $("ul li:nth-last-of-type(16) ~ li").hide();
 }
 
 init();
 
 document.getElementById("next-stop").onclick = ()=>{
-    $("li:nth-child(-n+" + (currentStop + 3) + ")").show();
-    $("li:nth-child(-n+" + currentStop + ")").hide();
-    currentStop += 1;
-    $("li:nth-child(-n+" + currentStop + ")").css("font-weight", "bold");
+    if (currentStop < stopsCount){
+        if (currentStop == stopsCount - 2){
+            $("ul").css("margin-top","78px")
+        }
+        else if (currentStop == stopsCount - 1){
+            $("ul").css("margin-top","133px")
+        }
+        $("li:nth-child(-n+" + (currentStop + 3) + ")").show();
+        $("li:nth-child(-n+" + currentStop + ")").hide();
+        currentStop += 1;
+        console.log(stopsCount+"/"+currentStop);
+        $("li:nth-child(-n+" + currentStop + ")").css("font-weight", "bold");
+    }
 };
 
 setTimeout(() => {
