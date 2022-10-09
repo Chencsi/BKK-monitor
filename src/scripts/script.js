@@ -3,6 +3,7 @@ var lastPart = url.substr(url.lastIndexOf('#') + 1);
 var stopsCount = 0;
 var currentStop = 1;
 var clickable = true;
+var stopNames;
 
 async function getBus(){
     // a fetch kuld egy kerest a szervernek
@@ -30,6 +31,7 @@ async function init(){ //main function
     document.getElementById("bus-number").innerText = 85;
     document.querySelector(".time").innerText = time;
     stopsCount = stops.length;
+    stopNames = stops;
     $("ul li:nth-last-of-type(16) ~ li").hide();;
 }
 
@@ -52,6 +54,7 @@ document.getElementById("next-stop").onclick = ()=>{
         clickable = false;
         if (currentStop < stopsCount){
             $("main").hide();
+            document.getElementById("big-next-stop").innerHTML = stopNames[currentStop];
             $(".next-stop-main").show();
             setTimeout(() => {
                 $("main").show();
