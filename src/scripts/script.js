@@ -7,7 +7,8 @@ async function getBus(){
     // a fetch kuld egy kerest a szervernek
     // addig nem megy tovabb amig nem kap valaszt
     await new Promise(r => setTimeout(r, 500)); // time.sleep
-    const bus = await (await fetch("../scripts/buses/" + lastPart + ".json")).json();
+    // const bus = await (await fetch("../scripts/buses/" + lastPart + ".json")).json();
+    const bus = await (await fetch("../scripts/buses/85.json")).json();
     var lista = document.createElement("ul");
     bus.forEach(stop => { //vegigmegy a megallokon
         const stopLi = document.createElement("li"); //csinal egy li-t
@@ -34,7 +35,7 @@ async function init(){ //main function
     var today = new Date();
     var time = isZero(today.getHours()) + ":" + isZero(today.getMinutes());
     document.querySelector(".last-stop").innerText = lastStop;
-    document.querySelector(".bus-number").innerText = lastPart;
+    document.querySelector(".bus-number").innerText = 85; //lastPart
     document.querySelector(".time").innerText = time;
     stopsCount = stops;
     $("ul li:nth-last-of-type(16) ~ li").hide();
