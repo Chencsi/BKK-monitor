@@ -1,11 +1,10 @@
-.hide{display: none;}
 body{
     background-color: black;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     zoom: 2; 
 }
-main{
+main, .next-stop-main{
     border: 1px solid black;
     width: 500px;
     height: 280px;
@@ -89,14 +88,14 @@ main{
     font-weight: bold;
     font-size: 120%;
 }
-li{
+main li{
     line-height: 55px;
     list-style-type: none;
 }
-li:first-child{
+main li:first-child{
     font-weight: bold;
 }
-ul{
+main ul{
     display: flex;
     flex-direction: column-reverse;
     margin-top: 23px;
@@ -113,4 +112,36 @@ ul{
 }
 #next-stop:hover{
     background-color: rgb(0, 66, 153);
+}
+.next-stop-main{
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+.next-stop-ul{
+    list-style-type: none;
+    margin: 0;
+    position: absolute;
+    left: 45px;
+    top: 10px;
+    font-size: 90%;
+}
+.next-stop-ul li:first-child{
+    font-weight: bold;
+}
+.next-stop-ul li:last-child{
+    font-style: italic;
+}
+@keyframes next-stop {
+    0%{
+        
+    }
+    50%{
+
+    }
+    100%{
+
+    }
 }

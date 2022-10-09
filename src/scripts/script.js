@@ -36,9 +36,10 @@ async function init(){ //main function
     var time = isZero(today.getHours()) + ":" + isZero(today.getMinutes());
     document.querySelector(".last-stop").innerText = lastStop;
     document.querySelector(".bus-number").innerText = 85; //lastPart
+    document.getElementById("bus-number").innerText = 85;
     document.querySelector(".time").innerText = time;
     stopsCount = stops.length;
-    $("ul li:nth-last-of-type(16) ~ li").hide();
+    $("ul li:nth-last-of-type(16) ~ li").hide();;
 }
 
 init();
