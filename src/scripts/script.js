@@ -58,10 +58,10 @@ document.getElementById("next-stop").onclick = ()=>{
                 $(".next-stop-main").hide();
             }, 3000);
             if (currentStop == stopsCount - 2){
-                $("ul").css("margin-top","78px")
+                $("main ul").css("margin-top","78px")
             }
             else if (currentStop == stopsCount - 1){
-                $("ul").css("margin-top","133px")
+                $("main ul").css("margin-top","133px")
             }
             $("main li:nth-child(-n+" + (currentStop + 3) + ")").show();
             $("main li:nth-child(-n+" + currentStop + ")").hide();
