@@ -54,7 +54,6 @@ document.getElementById("next-stop").onclick = ()=>{
         $("li:nth-child(-n+" + (currentStop + 3) + ")").show();
         $("li:nth-child(-n+" + currentStop + ")").hide();
         currentStop += 1;
-        console.log(stopsCount+"/"+currentStop);
         $("li:nth-child(-n+" + currentStop + ")").css("font-weight", "bold");
     }
 };
